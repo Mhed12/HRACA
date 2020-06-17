@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+    border:1px solid black;
+}
+</style>
+</head>
+<body>
+
+<p>Click on each tr element to alert its index position in the table:</p>
+		  <a type="button" href="#" value="Add another line" onclick="addField();">
+              Add Order
+          </a><br>
+<table id="myTable">
+              <thead>
+                <tr>
+                  <th>Food Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Sub Total</th>
+                </tr>
+              </thead>
+              <tbody>
+    <tr>
+        <td><select type="text" name="food_name">
+            <option value="xgxg">haha</option>
+        </select></td>
+        <td><input type="number" name="quantity"></td>
+        <td><p name="price"></p></td>
+        <td><p name="subtotal"></p></td>
+        <!--<td><input type="button" class="button" value="Add another line" onclick="addField();"></td>-->
+    </tr>
+    </tbody>
+</table>
+<script>
+ function addField (argument) {
+        var myTable = document.getElementById("myTable");
+        var currentIndex = myTable.rows.length;
+        var currentRow = myTable.insertRow(-1);
+
+        var food_nameBox = document.createElement("select");
+            food_nameBox.setAttribute("name", "food_name");
+            //food_nameBox.document.createElement("option");
+
+        var quantityBox = document.createElement("input");
+            quantityBox.setAttribute("name", "quantity");
+            quantityBox.setAttribute("type", "number");
+
+        var priceBox = document.createElement("p");
+            priceBox.setAttribute("name", "price" + currentIndex);
+
+        var subtotalBox = document.createElement("p");
+            subtotalBox.setAttribute("name", "subtotal" + currentIndex);
+
+        //var addRowBox = document.createElement("input");
+       // addRowBox.setAttribute("type", "button");
+        //addRowBox.setAttribute("value", "Add another line");
+       // addRowBox.setAttribute("onclick", "addField();");
+        //addRowBox.setAttribute("class", "button");
+
+        var currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(food_nameBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(quantityBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(priceBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(subtotalBox);
+
+        //currentCell = currentRow.insertCell(-1);
+        //currentCell.appendChild(addRowBox);
+    }
+</script>
+
+</body>
+</html>
